@@ -1,0 +1,18 @@
+{
+  "name": "Kauê Natan Jungles · Portfolio",
+  "short_name": "Kauê Jungles",
+  "description": "Web and full-stack development portfolio.",
+  "lang": "en",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAF8F3",
+  "theme_color": "#690D18",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
