@@ -3,7 +3,7 @@ import { bodyFont, displayFont } from "./fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Page not found · Kauê Natan Jungles",
+  title: "Page not found · Kaue Natan Jungles",
   description: "The requested portfolio page could not be found.",
   robots: {
     index: false,

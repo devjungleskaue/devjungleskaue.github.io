@@ -3,7 +3,7 @@ import { MakerMark } from "./MakerMark";
 import { ProjectProof } from "./ProjectProof";
 
 const playgroundUrl =
-  "https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/devjungleskaue/morrow-house-wordpress-case/v1.0.1/blueprint.json";
+  "https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/devjungleskaue/morrow-house-wordpress-case/v1.1.0/blueprint.json";
 const sourceUrl =
   "https://github.com/devjungleskaue/morrow-house-wordpress-case";
 
@@ -40,7 +40,7 @@ const caseCopy = {
       "WordPress Playground builds a disposable copy from that public source. The session starts fresh and its data is cleared when you close it.",
     demo: "Open the temporary store",
     source: "Read the source and checks",
-    footer: "Concept and implementation by Kauê Natan Jungles.",
+    footer: "Concept and implementation by Kaue Natan Jungles.",
   },
   pt: {
     skip: "Ir para o conteúdo do case",
@@ -74,7 +74,7 @@ const caseCopy = {
       "O WordPress Playground monta uma cópia descartável a partir desse código. Cada sessão começa limpa e perde os dados ao ser encerrada.",
     demo: "Abrir a loja temporária",
     source: "Ver código e testes",
-    footer: "Conceito e implementação por Kauê Natan Jungles.",
+    footer: "Conceito e implementação por Kaue Natan Jungles.",
   },
 } satisfies Record<
   Locale,
@@ -118,7 +118,7 @@ export function CasePage({ locale }: { locale: Locale }) {
       <nav className="site-nav" aria-label={text.nav}>
         <div className="site-nav__inner">
           <a className="wordmark" href={homeHref}>
-            Kauê Natan Jungles
+            Kaue Natan Jungles
           </a>
           <div className="site-nav__links">
             <a href={homeHref}>{text.home}</a>

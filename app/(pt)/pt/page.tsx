@@ -5,7 +5,7 @@ import { copy } from "../../content";
 export const metadata: Metadata = {
   title: "Desenvolvedor Web & Full-Stack",
   description:
-    "Kauê Natan Jungles desenvolve produtos web responsivos e acessíveis, do front-end ao full-stack e WordPress.",
+    "Kaue Natan Jungles desenvolve produtos web responsivos e acessíveis, do front-end ao full-stack e WordPress.",
   alternates: {
     canonical: "/pt/",
     languages: {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "profile",
     url: "/pt/",
-    title: "Kauê Natan Jungles · Desenvolvedor Web & Full-Stack",
+    title: "Kaue Natan Jungles · Desenvolvedor Web & Full-Stack",
     description:
       "Produtos web responsivos e acessíveis, do front-end ao full-stack e WordPress.",
     locale: "pt_BR",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "Kauê Natan Jungles · Desenvolvedor Web & Full-Stack",
+    title: "Kaue Natan Jungles · Desenvolvedor Web & Full-Stack",
     description:
       "Produtos web responsivos e acessíveis, do front-end ao full-stack e WordPress.",
   },

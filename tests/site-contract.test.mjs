@@ -17,6 +17,10 @@ async function exists(relativePath) {
   }
 }
 
+const legacyDisplayName = `Kau${"\u00ea"} Natan Jungles`;
+const legacyLinkedInSuffix = ["2218", "b8370"].join("");
+const legacyDemoTag = ["v1", "0", "1"].join(".");
+
 test("keeps only the runtime needed for a static Next.js portfolio", async () => {
   const packageJson = JSON.parse(await read("package.json"));
   const expectedDependencies = ["next", "react", "react-dom"];
@@ -77,7 +81,61 @@ test("uses normal document navigation on a rewrite-free static host", async () =
   assert.match(casePage, /<a\s+href=\{text\.languageHref\}/);
   assert.match(casePage, /lang=\{pt \? "en" : "pt-BR"\}/);
   assert.match(notFound, /<a className="button button--primary" href="\/">/);
-  assert.match(notFound, /title:\s*"Page not found · Kauê Natan Jungles"/);
+  assert.match(notFound, /title:\s*"Page not found · Kaue Natan Jungles"/);
+});
+
+test("uses the canonical public identity and profile links", async () => {
+  const source = (
+    await Promise.all([
+      read("app/content.ts"),
+      read("app/components/PortfolioPage.tsx"),
+      read("app/components/CasePage.tsx"),
+      read("app/(en)/layout.tsx"),
+      read("app/(en)/page.tsx"),
+      read("app/(pt)/layout.tsx"),
+      read("app/(pt)/pt/page.tsx"),
+      read("app/global-not-found.tsx"),
+      read("public/site.webmanifest"),
+    ])
+  ).join("\n");
+
+  assert.match(source, /Kaue Natan Jungles/);
+  assert.doesNotMatch(source, new RegExp(legacyDisplayName));
+  assert.match(
+    source,
+    /https:\/\/www\.linkedin\.com\/in\/kaue-natan-jungles\//,
+  );
+  assert.doesNotMatch(source, new RegExp(legacyLinkedInSuffix));
+});
+
+test("offers web roles without making remote work the only arrangement", async () => {
+  const [content, englishLayout, portugueseLayout] = await Promise.all([
+    read("app/content.ts"),
+    read("app/(en)/layout.tsx"),
+    read("app/(pt)/layout.tsx"),
+  ]);
+
+  assert.match(content, /eyebrow: "Open to new opportunities"/);
+  assert.match(content, /title: "Available for web and full-stack roles\."/);
+  assert.match(
+    content,
+    /I am based in Santa Catarina, Brazil, work in English and Portuguese, and can collaborate with local or international teams\./,
+  );
+  assert.match(content, /eyebrow: "Aberto a novas oportunidades"/);
+  assert.match(content, /title: "Disponível para vagas web e full-stack\."/);
+  assert.match(
+    content,
+    /Moro em Santa Catarina, trabalho em inglês e português e posso colaborar com equipes locais ou internacionais\./,
+  );
+  const opportunitySource = content + englishLayout + portugueseLayout;
+  for (const phrase of [
+    "focus is remote",
+    "available for remote",
+    ["trabalho", "remoto"].join(" "),
+    "oportunidades remotas",
+  ]) {
+    assert.doesNotMatch(opportunitySource, new RegExp(phrase, "i"));
+  }
 });
 
 test("ships localized keyboard navigation and visible interaction states", async () => {
@@ -115,8 +173,9 @@ test("describes the public evidence precisely", async () => {
   assert.match(casePage, /Um pequeno modelo interativo criado para esta página/);
   assert.match(
     casePage,
-    /morrow-house-wordpress-case\/v1\.0\.1\/blueprint\.json/,
+    /morrow-house-wordpress-case\/v1\.1\.0\/blueprint\.json/,
   );
+  assert.doesNotMatch(casePage, new RegExp(legacyDemoTag.replaceAll(".", "\\.")));
 });
 
 test("publishes a branded icon, manifest and Pages workflow", async () => {

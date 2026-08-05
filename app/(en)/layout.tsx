@@ -5,11 +5,11 @@ import "../globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://devjungleskaue.github.io"),
   title: {
-    default: "Kauê Natan Jungles · Web & Full-Stack Developer",
-    template: "%s · Kauê Natan Jungles",
+    default: "Kaue Natan Jungles · Web & Full-Stack Developer",
+    template: "%s · Kaue Natan Jungles",
   },
   description:
-    "Web and full-stack developer in Brazil, working in English and Portuguese and available for remote roles.",
+    "Web and full-stack developer in Brazil, working in English and Portuguese with local or international teams.",
   manifest: "/site.webmanifest",
   icons: {
     icon: "/favicon.svg",
