@@ -6,6 +6,21 @@ async function read(relativePath) {
   return readFile(new URL(relativePath, import.meta.url), "utf8");
 }
 
+function projectEvidence(content, locale, title) {
+  const projectsStart = content.indexOf(`  ${locale}: [`);
+  const projectsEnd = content.indexOf("\n  ],", projectsStart);
+  const localeProjects = content.slice(projectsStart, projectsEnd);
+  const projectStart = localeProjects.indexOf(`title: "${title}"`);
+  const projectEnd = localeProjects.indexOf("\n    },", projectStart);
+  const project = localeProjects.slice(projectStart, projectEnd);
+  const summary = project.match(/summary:\s*"([^"]+)"/)?.[1];
+  const proof = project.match(/proof:\s*"([^"]+)"/)?.[1];
+
+  assert.ok(summary, `missing ${locale} summary for ${title}`);
+  assert.ok(proof, `missing ${locale} proof for ${title}`);
+  return `${summary} ${proof}`;
+}
+
 test("contains factual bilingual project copy and public links", async () => {
   const content = await read("../app/content.ts");
 
@@ -68,6 +83,42 @@ test("defines English and Portuguese portfolio and case routes", async () => {
   assert.match(casePt, /url:\s*"\/pt\/trabalhos\/morrow-house\/"/);
 });
 
+test("gives the secure case the strongest explanation in both languages", async () => {
+  const content = await read("../app/content.ts");
+  const englishSecure = projectEvidence(
+    content,
+    "en",
+    "Secure real-time platform",
+  );
+  const portugueseSecure = projectEvidence(
+    content,
+    "pt",
+    "Plataforma segura em tempo real",
+  );
+
+  assert.match(
+    englishSecure,
+    /The public case explains the trust boundaries, session and MFA controls, real-time delivery model, row-level data isolation, failure paths and verification strategy without publishing private product details\./,
+  );
+  assert.match(
+    portugueseSecure,
+    /O case público explica limites de confiança, controles de sessão e MFA, entrega em tempo real, isolamento de dados por linha, caminhos de falha e estratégia de verificação sem publicar detalhes do produto privado\./,
+  );
+
+  for (const comparison of [
+    projectEvidence(content, "en", "Morrow House"),
+    projectEvidence(content, "en", "Truckstar"),
+  ]) {
+    assert.ok(englishSecure.length > comparison.length);
+  }
+  for (const comparison of [
+    projectEvidence(content, "pt", "Morrow House"),
+    projectEvidence(content, "pt", "Truckstar"),
+  ]) {
+    assert.ok(portugueseSecure.length > comparison.length);
+  }
+});
+
 test("presents the Morrow House build with inspectable evidence", async () => {
   const casePage = await read("../app/components/CasePage.tsx");
 
@@ -77,7 +128,7 @@ test("presents the Morrow House build with inspectable evidence", async () => {
   assert.match(casePage, /pagamentos estão desativados/i);
   assert.match(
     casePage,
-    /playground\.wordpress\.net\/\?blueprint-url=https:\/\/raw\.githubusercontent\.com\/devjungleskaue\/morrow-house-wordpress-case\/v1\.0\.1\/blueprint\.json/,
+    /playground\.wordpress\.net\/\?blueprint-url=https:\/\/raw\.githubusercontent\.com\/devjungleskaue\/morrow-house-wordpress-case\/v1\.1\.0\/blueprint\.json/,
   );
   assert.match(
     casePage,
@@ -105,5 +156,5 @@ test("configures discoverable static pages and localized documents", async () =>
     /Sitemap: https:\/\/devjungleskaue\.github\.io\/sitemap\.xml/,
   );
   assert.match(sitemap, /\/pt\/trabalhos\/morrow-house\//);
-  assert.equal(JSON.parse(manifest).short_name, "Kauê Jungles");
+  assert.equal(JSON.parse(manifest).short_name, "Kaue Jungles");
 });

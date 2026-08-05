@@ -41,7 +41,7 @@ export type PortfolioCopy = {
 
 export const profileLinks = {
   github: "https://github.com/devjungleskaue",
-  linkedin: "https://www.linkedin.com/in/kaue-natan-jungles-2218b8370/",
+  linkedin: "https://www.linkedin.com/in/kaue-natan-jungles/",
 } as const;
 
 const projects = {
@@ -65,7 +65,7 @@ const projects = {
       summary:
         "A public account of the architecture, security boundaries, tests and real-time behavior behind a private project. Client data, credentials and operational details stay private.",
       proof:
-        "The case explains the system's security boundaries, how I tested them and why I chose them.",
+        "The case explains the system's security boundaries, how I tested them and why I chose them. The public case explains the trust boundaries, session and MFA controls, real-time delivery model, row-level data isolation, failure paths and verification strategy without publishing private product details.",
       stack: ["Next.js", "TypeScript", "PostgreSQL", "Security", "Testing"],
       href: "https://github.com/devjungleskaue/secure-realtime-platform-case-study",
       sourceLabel: "Read the case",
@@ -106,7 +106,7 @@ const projects = {
       summary:
         "Um relato público sobre a arquitetura, os limites de segurança, os testes e o funcionamento em tempo real de um projeto privado. Dados de clientes, credenciais e detalhes operacionais não fazem parte do case.",
       proof:
-        "O case explica os limites de segurança do sistema, como eu os testei e por que escolhi cada um.",
+        "O case explica os limites de segurança do sistema, como eu os testei e por que escolhi cada um. O case público explica limites de confiança, controles de sessão e MFA, entrega em tempo real, isolamento de dados por linha, caminhos de falha e estratégia de verificação sem publicar detalhes do produto privado.",
       stack: ["Next.js", "TypeScript", "PostgreSQL", "Segurança", "Testes"],
       href: "https://github.com/devjungleskaue/secure-realtime-platform-case-study",
       sourceLabel: "Ler o case",
@@ -137,11 +137,11 @@ export const copy: Record<Locale, PortfolioCopy> = {
     skip: "Skip to selected work",
     nav: { work: "Work", approach: "Approach", contact: "Contact" },
     hero: {
-      eyebrow: "Kauê Natan Jungles · Web & Full-Stack Developer",
+      eyebrow: "Kaue Natan Jungles · Web & Full-Stack Developer",
       title:
         "I build reliable web products, from the interface to the systems behind them.",
       lead:
-        "My front-end work uses React and Next.js. Behind it, I work with Python, PostgreSQL and security-focused architecture. I also build WordPress and WooCommerce sites.",
+        "My front-end work uses React and Next.js. Behind it, I work with Python, PostgreSQL and security-focused architecture. My stack also includes WordPress and WooCommerce.",
       primary: "View selected work",
       secondary: "Open GitHub",
     },
@@ -181,13 +181,13 @@ export const copy: Record<Locale, PortfolioCopy> = {
       ],
     },
     contact: {
-      eyebrow: "Available for remote work",
-      title: "Open to international web development roles.",
+      eyebrow: "Open to new opportunities",
+      title: "Available for web and full-stack roles.",
       body:
-        "I am based in Santa Catarina, Brazil, and work in English and Portuguese. My focus is remote work with teams outside Brazil.",
+        "I am based in Santa Catarina, Brazil, work in English and Portuguese, and can collaborate with local or international teams.",
       action: "Contact me on LinkedIn",
     },
-    footer: "Designed and built by Kauê Natan Jungles.",
+    footer: "Designed and built by Kaue Natan Jungles.",
   },
   pt: {
     locale: "pt",
@@ -196,11 +196,11 @@ export const copy: Record<Locale, PortfolioCopy> = {
     skip: "Ir para os projetos selecionados",
     nav: { work: "Projetos", approach: "Processo", contact: "Contato" },
     hero: {
-      eyebrow: "Kauê Natan Jungles · Desenvolvedor Web & Full-Stack",
+      eyebrow: "Kaue Natan Jungles · Desenvolvedor Web & Full-Stack",
       title:
         "Construo produtos web confiáveis, da interface aos sistemas por trás deles.",
       lead:
-        "No front-end, trabalho com React e Next.js. Na base, uso Python, PostgreSQL e uma arquitetura pensada para segurança. Também desenvolvo sites em WordPress e WooCommerce.",
+        "No front-end, trabalho com React e Next.js. Na base, uso Python, PostgreSQL e uma arquitetura pensada para segurança. Minha stack também inclui WordPress e WooCommerce.",
       primary: "Ver projetos",
       secondary: "Abrir GitHub",
     },
@@ -240,12 +240,12 @@ export const copy: Record<Locale, PortfolioCopy> = {
       ],
     },
     contact: {
-      eyebrow: "Disponível para trabalho remoto",
-      title: "Aberto a vagas internacionais de desenvolvimento web.",
+      eyebrow: "Aberto a novas oportunidades",
+      title: "Disponível para vagas web e full-stack.",
       body:
-        "Moro em Santa Catarina e trabalho em inglês e português. Busco oportunidades remotas com equipes de fora do Brasil.",
+        "Moro em Santa Catarina, trabalho em inglês e português e posso colaborar com equipes locais ou internacionais.",
       action: "Falar comigo no LinkedIn",
     },
-    footer: "Design e desenvolvimento por Kauê Natan Jungles.",
+    footer: "Design e desenvolvimento por Kaue Natan Jungles.",
   },
 };

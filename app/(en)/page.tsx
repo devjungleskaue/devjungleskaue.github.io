@@ -3,9 +3,9 @@ import { PortfolioPage } from "../components/PortfolioPage";
 import { copy } from "../content";
 
 export const metadata: Metadata = {
-  title: "Kauê Natan Jungles · Web & Full-Stack Developer",
+  title: "Kaue Natan Jungles · Web & Full-Stack Developer",
   description:
-    "Kauê Natan Jungles builds responsive, accessible web products across front-end, full-stack and WordPress work.",
+    "Kaue Natan Jungles builds responsive, accessible web products and documents full-stack case studies.",
   alternates: {
     canonical: "/",
     languages: {
@@ -16,17 +16,17 @@ export const metadata: Metadata = {
   openGraph: {
     type: "profile",
     url: "/",
-    title: "Kauê Natan Jungles · Web & Full-Stack Developer",
+    title: "Kaue Natan Jungles · Web & Full-Stack Developer",
     description:
-      "Responsive, accessible web products across front-end, full-stack and WordPress work.",
+      "Responsive, accessible web products and documented full-stack case studies.",
     locale: "en_US",
     alternateLocale: "pt_BR",
   },
   twitter: {
     card: "summary",
-    title: "Kauê Natan Jungles · Web & Full-Stack Developer",
+    title: "Kaue Natan Jungles · Web & Full-Stack Developer",
     description:
-      "Responsive, accessible web products across front-end, full-stack and WordPress work.",
+      "Responsive, accessible web products and documented full-stack case studies.",
   },
 };
 

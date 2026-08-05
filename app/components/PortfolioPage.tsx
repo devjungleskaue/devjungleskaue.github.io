@@ -57,7 +57,7 @@ export function PortfolioPage({ content }: { content: PortfolioCopy }) {
       <nav className="site-nav" aria-label={navLabel}>
         <div className="site-nav__inner">
           <a className="wordmark" href={homeHref}>
-            Kauê Natan Jungles
+            Kaue Natan Jungles
           </a>
           <div className="site-nav__links">
             <a href="#work">{content.nav.work}</a>
