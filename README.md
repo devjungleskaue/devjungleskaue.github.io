@@ -1,4 +1,4 @@
-# Kauê Natan Jungles
+# Kaue Natan Jungles
 
 Bilingual portfolio for my web and full-stack work. It includes public projects, a reproducible WooCommerce case and links to the source behind each piece.
 
