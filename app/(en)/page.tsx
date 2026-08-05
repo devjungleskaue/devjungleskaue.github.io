@@ -5,7 +5,7 @@ import { copy } from "../content";
 export const metadata: Metadata = {
   title: "Kaue Natan Jungles · Web & Full-Stack Developer",
   description:
-    "Kaue Natan Jungles builds responsive, accessible web products across front-end, full-stack and WordPress work.",
+    "Kaue Natan Jungles builds responsive, accessible web products and documents full-stack case studies.",
   alternates: {
     canonical: "/",
     languages: {
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     url: "/",
     title: "Kaue Natan Jungles · Web & Full-Stack Developer",
     description:
-      "Responsive, accessible web products across front-end, full-stack and WordPress work.",
+      "Responsive, accessible web products and documented full-stack case studies.",
     locale: "en_US",
     alternateLocale: "pt_BR",
   },
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: "summary",
     title: "Kaue Natan Jungles · Web & Full-Stack Developer",
     description:
-      "Responsive, accessible web products across front-end, full-stack and WordPress work.",
+      "Responsive, accessible web products and documented full-stack case studies.",
   },
 };
 

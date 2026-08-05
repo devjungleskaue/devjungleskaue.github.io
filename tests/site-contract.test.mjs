@@ -20,6 +20,7 @@ async function exists(relativePath) {
 const legacyDisplayName = `Kau${"\u00ea"} Natan Jungles`;
 const legacyLinkedInSuffix = ["2218", "b8370"].join("");
 const legacyDemoTag = ["v1", "0", "1"].join(".");
+const canonicalLinkedIn = "https://www.linkedin.com/in/kaue-natan-jungles/";
 
 test("keeps only the runtime needed for a static Next.js portfolio", async () => {
   const packageJson = JSON.parse(await read("package.json"));
@@ -101,20 +102,23 @@ test("uses the canonical public identity and profile links", async () => {
 
   assert.match(source, /Kaue Natan Jungles/);
   assert.doesNotMatch(source, new RegExp(legacyDisplayName));
-  assert.match(
-    source,
-    /https:\/\/www\.linkedin\.com\/in\/kaue-natan-jungles\//,
-  );
+  const sourceLinkedIn = source.match(/linkedin:\s*"([^"]+)"/)?.[1];
+  assert.equal(sourceLinkedIn, canonicalLinkedIn);
   assert.doesNotMatch(source, new RegExp(legacyLinkedInSuffix));
 });
 
-test("offers web roles without making remote work the only arrangement", async () => {
-  const [content, englishLayout, portugueseLayout] = await Promise.all([
-    read("app/content.ts"),
-    read("app/(en)/layout.tsx"),
-    read("app/(pt)/layout.tsx"),
-  ]);
+test("keeps general positioning broad outside the Morrow delivery case", async () => {
+  const [content, englishLayout, portugueseLayout, englishHome, portugueseHome] =
+    await Promise.all([
+      read("app/content.ts"),
+      read("app/(en)/layout.tsx"),
+      read("app/(pt)/layout.tsx"),
+      read("app/(en)/page.tsx"),
+      read("app/(pt)/pt/page.tsx"),
+    ]);
 
+  assert.match(content, /My stack also includes WordPress and WooCommerce\./);
+  assert.match(content, /Minha stack também inclui WordPress e WooCommerce\./);
   assert.match(content, /eyebrow: "Open to new opportunities"/);
   assert.match(content, /title: "Available for web and full-stack roles\."/);
   assert.match(
@@ -136,6 +140,9 @@ test("offers web roles without making remote work the only arrangement", async (
   ]) {
     assert.doesNotMatch(opportunitySource, new RegExp(phrase, "i"));
   }
+  assert.doesNotMatch(englishHome + portugueseHome, /WordPress|WooCommerce/);
+  assert.match(englishHome, /full-stack case studies/);
+  assert.match(portugueseHome, /cases full-stack/);
 });
 
 test("ships localized keyboard navigation and visible interaction states", async () => {

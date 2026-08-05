@@ -5,6 +5,7 @@ import test from "node:test";
 const legacyDisplayName = `Kau${"\u00ea"} Natan Jungles`;
 const legacyLinkedInSuffix = ["2218", "b8370"].join("");
 const legacyDemoTag = ["v1", "0", "1"].join(".");
+const canonicalLinkedIn = "https://www.linkedin.com/in/kaue-natan-jungles/";
 
 const pages = [
   ["English home", "../out/index.html", /I build reliable web products/],
@@ -65,7 +66,10 @@ test("exports public profile, case and canonical links", async () => {
   const canonical = "https://devjungleskaue.github.io/work/morrow-house/";
 
   assert.match(home, /github\.com\/devjungleskaue/);
-  assert.match(home, /linkedin\.com\/in\/kaue-natan-jungles\//);
+  const linkedinHrefs = [...home.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>/g)]
+    .map((match) => match[1])
+    .filter((href) => href.includes("linkedin.com"));
+  assert.deepEqual(linkedinHrefs, [canonicalLinkedIn]);
   assert.doesNotMatch(home, new RegExp(legacyLinkedInSuffix));
   assert.match(home, /Kaue Natan Jungles/);
   assert.doesNotMatch(home + casePage, new RegExp(legacyDisplayName));

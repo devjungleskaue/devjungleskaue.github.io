@@ -141,7 +141,7 @@ export const copy: Record<Locale, PortfolioCopy> = {
       title:
         "I build reliable web products, from the interface to the systems behind them.",
       lead:
-        "My front-end work uses React and Next.js. Behind it, I work with Python, PostgreSQL and security-focused architecture. I also build WordPress and WooCommerce sites.",
+        "My front-end work uses React and Next.js. Behind it, I work with Python, PostgreSQL and security-focused architecture. My stack also includes WordPress and WooCommerce.",
       primary: "View selected work",
       secondary: "Open GitHub",
     },
@@ -200,7 +200,7 @@ export const copy: Record<Locale, PortfolioCopy> = {
       title:
         "Construo produtos web confiáveis, da interface aos sistemas por trás deles.",
       lead:
-        "No front-end, trabalho com React e Next.js. Na base, uso Python, PostgreSQL e uma arquitetura pensada para segurança. Também desenvolvo sites em WordPress e WooCommerce.",
+        "No front-end, trabalho com React e Next.js. Na base, uso Python, PostgreSQL e uma arquitetura pensada para segurança. Minha stack também inclui WordPress e WooCommerce.",
       primary: "Ver projetos",
       secondary: "Abrir GitHub",
     },
